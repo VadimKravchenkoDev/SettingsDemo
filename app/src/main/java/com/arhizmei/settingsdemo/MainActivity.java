@@ -1,12 +1,15 @@
 package com.arhizmei.settingsdemo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import java.lang.reflect.Method;
 
@@ -16,8 +19,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean valueCheckBox = preferences.getBoolean("checkBox", false);
+        TextView helloText = findViewById(R.id.helloText);
+        if(valueCheckBox){
+            helloText.setText("You turn on me!!!");
+        } else helloText.setText("Hello");
 
     }
 
