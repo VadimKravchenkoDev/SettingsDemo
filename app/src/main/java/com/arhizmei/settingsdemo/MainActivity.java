@@ -1,5 +1,6 @@
 package com.arhizmei.settingsdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.menu){
-
-
+        startActivity(new Intent(this,SettingsActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
